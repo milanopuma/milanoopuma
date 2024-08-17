@@ -1,25 +1,66 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="fa">
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css"/>
-  <title>Welcome</title>
+  <title>صفحه نمایش IP و پین</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #007acc;
+    }
+    iframe {
+      width: 100%;
+      height: 150px;
+      border: none;
+      margin-bottom: 20px;
+    }
+    .link-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .copy-button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h2 style="text-align: center;">
-    Welcome
-  </h2>
-  This is an example web page.<br>
-  The page is written in html, to see its markup and edit it click the edit button at the top of the screen.<br>
-  You can open html, css and javascript files using the file manager.<br>
-  To create new files use the menu at the top left of the screen.
-  <br>
-  
-  <iframe src="https://ip.skk.moe/simple-dark" style="width: 100%; border: 0"></iframe>
-  <br>
-  <link>
-  
-  <iframe src="https://ip.skk.moe/simple" style="width: 100%; border: 100%"></iframe>
+  <h2>نمایش IP و پین</h2>
+
+  <iframe src="https://ip.skk.moe/simple-dark"></iframe>
+  <iframe src="https://ip.skk.moe/simple"></iframe>
+
+  <div class="link-container">
+    <p>برای کپی کردن لینک اشتراکی زیر، روی دکمه کلیک کنید:</p>
+    <input type="text" value="https://raw.githubusercontent.com/milanopuma/milanoopuma/main/README.md" id="sharedLink" readonly style="width: 80%; padding: 10px; margin-bottom: 10px;">
+    <br>
+    <button class="copy-button" onclick="copyLink()">کپی لینک</button>
+  </div>
+
+  <script>
+    function copyLink() {
+      var copyText = document.getElementById("sharedLink");
+      copyText.select();
+      document.execCommand("copy");
+      alert("لینک کپی شد: " + copyText.value);
+    }
+  </script>
 </body>
 </html>
